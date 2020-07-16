@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+
+    <script src="{% static 'js/validation.js' %}"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static "css/style.css" %}" >
+
+    <style>
+
+      .left-part, form,button {
+      width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+        <form  name="MyForm" onsubmit="return validateForm()" method="POST">
+        {% csrf_token %}
+        <h1>Set Time</h1>
+        <div class="info" >
+          <input type="hidden" name="task_type" value="Task Type">
+          <input type="hidden" name="user" value="User">
+          <input type="hidden" name="country" value="Country">
+          <input type="label" name="start_time" value="{{start_time}}" required>
+          <input type="label" name="end_time" value="{{end_time}}" required>
+          <input type="label" name="start_day" value="{{start_day}}">
+          <input type="label" name="end_day" value="{{end_day}}">
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

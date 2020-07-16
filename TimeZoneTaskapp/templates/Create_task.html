@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <script src="{% static 'js/validation.js' %}"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" >
+
+    <style>
+      .left-part, form,button {
+      width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+
+      <form  name="MyForm" onsubmit="return validateForm()" method="POST">
+        {% csrf_token %}
+        <h1>Create Task</h1>
+        <div class="info" >
+          <input type="text" name="task_type" placeholder="Task Type" required>
+          <input type="text" name="user" placeholder="User" required>
+          <input type="text" name="country" placeholder="Country" required>
+          <input type="text" name="start_time" placeholder="HH:MM:SS(Start Time)"required>
+          <input type="text" name="end_time" placeholder="HH:MM:SS(End Time)" required>
+          <input type="text" name="start_day" placeholder="Start Day(Full Day Name)">
+          <input type="text" name="end_day" placeholder="End Day(Full Day Name)">
+        </div>
+        <button type="submit" >Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
